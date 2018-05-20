@@ -1,1 +1,109 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MasterQuiz</title>
+</head>
+<body>
+    <h1>Welcome to the Quiz</h1>
+<div id="welCome">
+        <p>Are you ready for an epic Containerization Journey!?</p>
+        <p>Test your knowledge and find out!</p>
+    <form>
+        <input>Enter your nickname</input>
+    </form>
+    <button id="hideText">Continue</button>
+</div>
+<div id="QuizQuestions">
+        <p>Click "start quiz" and the quiz will begin😅.</p>
+        <button id="startquiz">start quiz</button> 
+                <div id="question"></div>
+                <h1 id="timer"></h1>
+            </div>     
+                
+                
+               
+                
+                <script>
+                    var timer = 10000;
+                    var counter = 0;
+                questions =  [
+    {
+        "question": "Where does Santa come from?",
+        "ans1": "Finland",
+        "ans2": "Russia",
+        "ans3": "Africa"
+    },{
+        "question": "How do you feel when you have been drinking the day before?",
+        "ans1": "Not so good, or I mean Fantastic!",
+        "ans2": "Even Monkey cant drink",
+        "ans3": "The sun is shining"
+    },{
+        "question": "My name is:",
+        "ans1": "Fred",
+        "ans2": "Frankie",
+        "ans3": "Andre & Pedram"
+    },{
+        "question": "How do you feel when you have been drinking the day before?",
+        "ans1": "Not so good, or I mean Fantastic!",
+        "ans2": "Even Monkey cant drink",
+        "ans3": "The sun is shining"
+    },{
+        "question": "How do you feel when you have been drinking the day before?",
+        "ans1": "Not so good, or I mean Fantastic!",
+        "ans2": "Even Monkey cant drink",
+        "ans3": "The sun is shining"
+    }
+]   
+             $(document).ready(function(){   
+               
+                $('#hideText').click(function(){
+                    $('#welCome').hide();
+                    $('#quizQuestions').show();
+                });
+                function checktimer(){
+                    if(timer == 0){
+                        console.log("next question"); 
+                        $('#question').html(`<h1> ${questions[counter].question}</h1>`);
+                        $("#timer").html(`Next question!`);
+                    }else{
+                      // $("#question").text(timer/10000){
+                        // $('#question').empty();
+                       //}
+                        $("#timer").html(timer/1000);
+                       // counter = counter + 1;
+                        setTimeout(checktimer,1000);
+                        timer = timer - 1000; 
+                        
+                    }  
+                }
+                
+                function quiz(i){
+                    
+                
+                            setTimeout(checktimer(),1000); 
+
+                }
+                
+$('#startquiz').click(function(){
+    
+    for(var i = 0; i < 4; i++); { 
+        $('#question').html(`<h1> ${questions[counter].question}</h1>`);
+
+        $('#welCome').hide();
+                    $('#quizQuestions').hide();
+        quiz(i);
+}
+});
+                
+            });
+                </script>
+
+
+</body>
+
+
+</html>
